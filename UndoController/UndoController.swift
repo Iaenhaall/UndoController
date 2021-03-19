@@ -41,22 +41,28 @@ final public class UndoController: ObservableObject {
      */
     public func show(message: String, time seconds: UInt = 5, timerAction: (() -> ())? = nil, undoAction: @escaping () -> ()) {
         DispatchQueue.main.async {
-            self.reset()
+            if let prevTimerAction = self.timerAction { prevTimerAction() }
             self.message = message
             self.seconds = Double(seconds > 99 ? 99 : seconds)
             self.timerAction = timerAction
             self.undoAction = undoAction
             
+            self.timer?.invalidate()
             self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
                 self.seconds -= 1
-                if self.seconds == 0 {
-                    withAnimation { self.isPresented = false }
-                    if let timerAction = timerAction { timerAction() }
-                    self.reset()
-                }
+                if self.seconds == 0 { self.hide() }
             }
             
             withAnimation { self.isPresented = true }
+        }
+    }
+    
+    /// Immediately ends the lifetime of the `UndoController`.
+    public func hide() {
+        if self.isPresented {
+            withAnimation { self.isPresented = false }
+            if let timerAction = timerAction { timerAction() }
+            self.reset()
         }
     }
     
@@ -107,11 +113,12 @@ extension View {
                 .background(
                     Capsule()
                         .foregroundColor(Color(UIColor.tertiarySystemBackground))
-                        .shadow(color: Color(.gray).opacity(0.35), radius: 12, x: 0, y: 5)
+                        .shadow(color: Color(.black).opacity(0.35), radius: 12, x: 0, y: 5)
                 )
                 .padding(undoController.indents)
                 .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
                 .zIndex(.infinity)
+                .animation(.easeOut)
             }
         }
     }

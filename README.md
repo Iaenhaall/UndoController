@@ -74,7 +74,14 @@ These are the main points to pay attention to.
 
 3. Call the `UndoController` when needed. In this case, it happens when user deletes a name from the `List`.
 
-   Please note that when the **Show** method is called multiple times, all closures (except the last one) required to undo user actions are removed.
+   The **Show** function accepts the following parameters:
+
+   * **message**: The message text that is displayed on the `UndoController`.
+   * **time**: The `UndoController` lifetime. *The default value is 5 sec.*
+   * **timerAction**: The action that will be performed if the `UndoController`'s life time has expired. *It can be nil.*
+   * **undoAction**: The action that will be performed if a user undoes the action.
+
+   Please note that when the **Show** method is called again (while `UndoController` is present) the **timerAction** closure from the previous method call is executed.
 
    ```swift
    func delete(at offsets: IndexSet) {
@@ -87,11 +94,4 @@ These are the main points to pay attention to.
    ```
 
    To undo actions you can write your own code or use the system [UndoManager](https://developer.apple.com/documentation/foundation/undomanager).
-
-   The **Show** function accepts the following parameters:
-
-   * **message**: The message text that is displayed on the `UndoController`.
-   * **time**: The `UndoController` lifetime. *The default value is 5 sec.*
-   * **timerAction**: The action that will be performed if the `UndoController`'s life time has expired. *It can be nil.*
-   * **undoAction**: The action that will be performed if a user undoes the action.
 
