@@ -7,19 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD0F1664260397E20057B61E /* ListExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0F1663260397E20057B61E /* ListExample.swift */; };
 		BD42E9BB260278A500E66A85 /* UndoControllerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD42E9BA260278A500E66A85 /* UndoControllerApp.swift */; };
 		BD42E9BD260278A500E66A85 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD42E9BC260278A500E66A85 /* ContentView.swift */; };
 		BD42E9BF260278A800E66A85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD42E9BE260278A800E66A85 /* Assets.xcassets */; };
 		BD42E9C2260278A800E66A85 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD42E9C1260278A800E66A85 /* Preview Assets.xcassets */; };
+		BD42E9CB2602796F00E66A85 /* UndoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD42E9CA2602796F00E66A85 /* UndoController.swift */; };
+		BD77FC3926046F1000586808 /* AppExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD77FC3826046F1000586808 /* AppExample.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD0F1663260397E20057B61E /* ListExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListExample.swift; sourceTree = "<group>"; };
 		BD42E9B7260278A500E66A85 /* UndoController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UndoController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD42E9BA260278A500E66A85 /* UndoControllerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoControllerApp.swift; sourceTree = "<group>"; };
 		BD42E9BC260278A500E66A85 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BD42E9BE260278A800E66A85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD42E9C1260278A800E66A85 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BD42E9C3260278A800E66A85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD42E9CA2602796F00E66A85 /* UndoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoController.swift; sourceTree = "<group>"; };
+		BD77FC3826046F1000586808 /* AppExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExample.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +59,10 @@
 			isa = PBXGroup;
 			children = (
 				BD42E9BA260278A500E66A85 /* UndoControllerApp.swift */,
+				BD42E9CA2602796F00E66A85 /* UndoController.swift */,
 				BD42E9BC260278A500E66A85 /* ContentView.swift */,
+				BD0F1663260397E20057B61E /* ListExample.swift */,
+				BD77FC3826046F1000586808 /* AppExample.swift */,
 				BD42E9BE260278A800E66A85 /* Assets.xcassets */,
 				BD42E9C3260278A800E66A85 /* Info.plist */,
 				BD42E9C0260278A800E66A85 /* Preview Content */,
@@ -139,7 +148,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD42E9BD260278A500E66A85 /* ContentView.swift in Sources */,
+				BD77FC3926046F1000586808 /* AppExample.swift in Sources */,
 				BD42E9BB260278A500E66A85 /* UndoControllerApp.swift in Sources */,
+				BD42E9CB2602796F00E66A85 /* UndoController.swift in Sources */,
+				BD0F1664260397E20057B61E /* ListExample.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
