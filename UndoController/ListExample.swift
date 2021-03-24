@@ -35,16 +35,25 @@ struct ListExample: View {
     func delete(at offsets: IndexSet) {
         var removedNames: [Int: String] = [:]
         
-        for index in offsets {
-            removedNames.updateValue(names[index], forKey: index)
-            names.remove(at: index)
+        withAnimation {
+            for index in offsets {
+                removedNames.updateValue(names[index], forKey: index)
+                names.remove(at: index)
+            }
         }
         
         // Shows UndoController after name is deleted.
-        undoController.show(message: "After deletion, the name cannot be restored!", time: 5) {
-            for index in removedNames.keys.sorted() {
-                names.insert(removedNames[index]!, at: index)
-            }
+        undoController.show(time: 5,
+                            undoAction: {
+                                withAnimation {
+                                    for index in removedNames.keys.sorted() {
+                                        names.insert(removedNames[index]!, at: index)
+                                    }
+                                }
+                            })
+        {
+            Text("After deletion, the name cannot be restored!")
+                .frame(minWidth: .zero, maxWidth: .infinity, alignment: .leading) // Makes the UndoController fill the entire width of the View.
         }
     }
 }

@@ -14,14 +14,27 @@ struct AppExample: View {
     var body: some View {
         VStack {
             Button("Show UndoController") {
-                undoController.show(message: "UndoController message!",
-                                    time: 3,
+                undoController.show(time: 10,
                                     timerAction: {
                                         print("Timer")
                                     },
                                     undoAction: {
                                         print("Undo!")
                                     })
+                {
+                    VStack(alignment: .center, spacing: 5) {
+                        Image(systemName: "applelogo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 25, height: 25, alignment: .center)
+                            .foregroundColor(.gray)
+                        
+                        Text("Content of UndoController that contains the Image and Text inside VStack!")
+                            .font(.callout)
+                            .multilineTextAlignment(.center)
+                    }
+                    .frame(minWidth: .zero, maxWidth: .infinity, alignment: .center) // Makes the UndoController fill the entire width of the View.
+                }
             }
             
             TextField("Enter text", text: $text)

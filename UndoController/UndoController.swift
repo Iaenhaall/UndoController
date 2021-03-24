@@ -13,8 +13,8 @@ final public class UndoController: ObservableObject {
     @Published fileprivate(set) var isPresented: Bool = false
     /// Time in seconds remaining before the `UndoController` disappears.
     @Published private(set) var seconds: Double = 0
-    /// The message text that is displayed on the `UndoController`.
-    private(set) var message: String = ""
+    /// The content that is displayed on the `UndoController`.
+    private(set) var content: AnyView?
     /// The action that will be performed if the `UndoController`'s life time has expired.
     private(set) var timerAction: (() -> ())?
     /// The action that will be performed if a user undoes the action.
@@ -39,10 +39,10 @@ final public class UndoController: ObservableObject {
      - parameter timerAction: The action that will be performed if the `UndoController`'s life time has expired.
      - parameter undoAction: The action that will be performed if a user undoes the action.
      */
-    public func show(message: String, time seconds: UInt = 5, timerAction: (() -> ())? = nil, undoAction: @escaping () -> ()) {
+    public func show<Content: View>(time seconds: UInt = 5, timerAction: (() -> ())? = nil, undoAction: @escaping () -> (), content: @escaping () -> Content) {
         DispatchQueue.main.async {
             if let prevTimerAction = self.timerAction { prevTimerAction() }
-            self.message = message
+            self.content = AnyView(content())
             self.seconds = Double(seconds > 99 ? 99 : seconds)
             self.timerAction = timerAction
             self.undoAction = undoAction
@@ -50,7 +50,12 @@ final public class UndoController: ObservableObject {
             self.timer?.invalidate()
             self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
                 self.seconds -= 1
-                if self.seconds == 0 { self.hide() }
+                if self.seconds == 0 {
+                    // A small delay so that 0 can be displayed before the UndoController is hidden.
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                        self.hide()
+                    }
+                }
             }
             
             withAnimation { self.isPresented = true }
@@ -71,7 +76,7 @@ final public class UndoController: ObservableObject {
         self.timer?.invalidate()
         self.timer = nil
         self.seconds = 0
-        self.message = ""
+        self.content = nil
         self.timerAction = nil
         self.undoAction = nil
     }
@@ -97,8 +102,9 @@ extension View {
                     Text(String(Int8(undoController.seconds)))
                         .font(.title)
                         .frame(width: 36) // The fixed width prevents the jerking of the controller during timer operation.
+                        .id(undoController.seconds)
 
-                    Text(undoController.message)
+                    undoController.content
 
                     Button(action: {
                         withAnimation { undoController.isPresented = false }
@@ -109,6 +115,7 @@ extension View {
                             .font(.headline)
                     })
                 }
+                .clipped()
                 .padding(EdgeInsets(top: 16, leading: 23, bottom: 16, trailing: 23))
                 .background(
                     Capsule()
@@ -116,9 +123,9 @@ extension View {
                         .shadow(color: Color(.black).opacity(0.35), radius: 12, x: 0, y: 5)
                 )
                 .padding(undoController.indents)
-                .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
                 .zIndex(.infinity)
-                .animation(.easeOut)
+                .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
+                .animation(.default)
             }
         }
     }
