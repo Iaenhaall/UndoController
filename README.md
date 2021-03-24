@@ -70,28 +70,37 @@ These are the main points to pay attention to.
    }
    ```
 
-   **Note**, in this case the `UndoController` will overlap Views such as `TabView`. To avoid this, add the controller only to necessary Views (`NavigationView`, `List`, etc.) or increase its indentation.
+   **Note**, in this case the `UndoController` will overlap Views such as `TabView`. To avoid this, add the controller only to necessary Views (`NavigationView`, `List`, etc.) or increase its indentations. The behavior of the `UndoController` depends on which View you add it to. For example, when it is added to a `NavigationView`, it will be displayed above all views in the navigation stack. When it is added to a specific View that is inside the navigation stack, it will only appear above that View.
 
-3. Call the `UndoController` when needed. In this case, it happens when user deletes a name from the `List`.
+3. Call the `UndoController` when needed. In the example, it happens when user deletes a name from the `List`.
 
    The **Show** function accepts the following parameters:
 
-   * **message**: The message text that is displayed on the `UndoController`.
    * **time**: The `UndoController` lifetime. *The default value is 5 sec.*
    * **timerAction**: The action that will be performed if the `UndoController`'s life time has expired. *It can be nil.*
    * **undoAction**: The action that will be performed if a user undoes the action.
+   * **content**: The content that is displayed on the `UndoController`. The content can be any view, such as `Text`, `Label`, `VStack`, etc.
 
-   Please note that when the **Show** method is called again (while `UndoController` is present) the **timerAction** closure from the previous method call is executed.
+   **Please note** that when the **Show** method is called again (while `UndoController` is present) the **timerAction** closure from the previous method call is executed.
 
    ```swift
    func delete(at offsets: IndexSet) {
        ...
        // Shows UndoController after name is deleted.
-       undoController.show(message: "After deletion, the name cannot be restored!") {
-           // Actions required to undo name deletion.
+       undoController.show(time: 5,
+                           undoAction: {
+                               // Actions required to undo name deletion.
+                           })
+       {
+           // UndoController context.
+           Text("After deletion, the name cannot be restored!")
        }
    }
    ```
 
    To undo actions you can write your own code or use the system [UndoManager](https://developer.apple.com/documentation/foundation/undomanager).
+
+   If the **Show** method is called again when the `UndoController` is already presented and a different *content* is passed, the *content* changes will be animated.
+
+   ![Content animation](Images/Content%20animation.gif)
 

@@ -13,7 +13,7 @@ final public class UndoController: ObservableObject {
     @Published fileprivate(set) var isPresented: Bool = false
     /// Time in seconds remaining before the `UndoController` disappears.
     @Published private(set) var seconds: Double = 0
-    /// The content that is displayed on the `UndoController`.
+    /// The content that is displayed on the `UndoController`. The content can be any view, such as `Text`, `Label`, `VStack`, etc.
     private(set) var content: AnyView?
     /// The action that will be performed if the `UndoController`'s life time has expired.
     private(set) var timerAction: (() -> ())?
@@ -34,10 +34,10 @@ final public class UndoController: ObservableObject {
     /**
      Displays the `UndoController` with the specified parameters.
      
-     - parameter message: The message text that is displayed on the `UndoController`.
      - parameter seconds: The `UndoController` lifetime.
      - parameter timerAction: The action that will be performed if the `UndoController`'s life time has expired.
      - parameter undoAction: The action that will be performed if a user undoes the action.
+     - parameter content: The content that is displayed on the `UndoController`. The content can be any view, such as `Text`, `Label`, `VStack`, etc.
      */
     public func show<Content: View>(time seconds: UInt = 5, timerAction: (() -> ())? = nil, undoAction: @escaping () -> (), content: @escaping () -> Content) {
         DispatchQueue.main.async {
