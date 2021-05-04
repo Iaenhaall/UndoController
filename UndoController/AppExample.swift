@@ -19,7 +19,7 @@ struct AppExample: View {
                                         print("Timer")
                                     },
                                     undoAction: {
-                                        print("Undo!")
+                                        print("Undo")
                                     })
                 {
                     VStack(alignment: .center, spacing: 5) {

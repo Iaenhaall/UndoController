@@ -12,7 +12,7 @@ final public class UndoController: ObservableObject {
     /// Boolean variable indicating whether the `UndoController` is currently displayed or not.
     @Published fileprivate(set) var isPresented: Bool = false
     /// Time in seconds remaining before the `UndoController` disappears.
-    @Published private(set) var seconds: Double = 0
+    @Published private(set) var seconds: Double = .zero
     /// The content that is displayed on the `UndoController`. The content can be any view, such as `Text`, `Label`, `VStack`, etc.
     private(set) var content: AnyView?
     /// The action that will be performed if the `UndoController`'s life time has expired.
@@ -27,7 +27,7 @@ final public class UndoController: ObservableObject {
      
      - parameter padding: An optional parameter that allows to set indents for UndoController from the boundaries of the view to which it is added.
      */
-    public init(indents: EdgeInsets = EdgeInsets(top: 0, leading: 20, bottom: 20, trailing: 20)) {
+    public init(indents: EdgeInsets = EdgeInsets(top: .zero, leading: 20, bottom: 20, trailing: 20)) {
         self.indents = indents
     }
     
@@ -39,9 +39,10 @@ final public class UndoController: ObservableObject {
      - parameter undoAction: The action that will be performed if a user undoes the action.
      - parameter content: The content that is displayed on the `UndoController`. The content can be any view, such as `Text`, `Label`, `VStack`, etc.
      */
-    public func show<Content: View>(time seconds: UInt = 5, timerAction: (() -> ())? = nil, undoAction: @escaping () -> (), content: @escaping () -> Content) {
+    public func show<Content: View>(time seconds: UInt = 5, timerAction: (() -> ())? = nil, undoAction: @escaping () -> (), @ViewBuilder content: @escaping () -> Content) {
         DispatchQueue.main.async {
-            if let prevTimerAction = self.timerAction { prevTimerAction() }
+            // Executes timerAction if the controller has already been presented.
+            self.timerAction?()
             self.content = AnyView(content())
             self.seconds = Double(seconds > 99 ? 99 : seconds)
             self.timerAction = timerAction
@@ -50,7 +51,7 @@ final public class UndoController: ObservableObject {
             self.timer?.invalidate()
             self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
                 self.seconds -= 1
-                if self.seconds == 0 {
+                if self.seconds == .zero {
                     // A small delay so that 0 can be displayed before the UndoController is hidden.
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                         self.hide()
@@ -64,18 +65,23 @@ final public class UndoController: ObservableObject {
     
     /// Immediately ends the lifetime of the `UndoController`.
     public func hide() {
+        self.hide(by: self.timerAction)
+    }
+    
+    /// Immediately ends the lifetime of the `UndoController` with the specified action.
+    fileprivate func hide(by action: (() -> ())?) {
         if self.isPresented {
             withAnimation { self.isPresented = false }
-            if let timerAction = timerAction { timerAction() }
+            action?()
             self.reset()
         }
     }
     
     /// Resets the controller parameters to their initial values.
-    fileprivate func reset() {
+    private func reset() {
         self.timer?.invalidate()
         self.timer = nil
-        self.seconds = 0
+        self.seconds = .zero
         self.content = nil
         self.timerAction = nil
         self.undoAction = nil
@@ -106,14 +112,11 @@ extension View {
 
                     undoController.content
 
-                    Button(action: {
-                        withAnimation { undoController.isPresented = false }
-                        undoController.undoAction!()
-                        undoController.reset()
-                    }, label: {
-                        Text("Undo", comment: "The undo button text on the UndoController.")
-                            .font(.headline)
-                    })
+                    Button(action: { undoController.hide(by: undoController.undoAction) },
+                           label: {
+                            Text("Undo", comment: "The undo button text on the UndoController.")
+                                .font(.headline)
+                           })
                 }
                 .clipped()
                 .padding(EdgeInsets(top: 16, leading: 23, bottom: 16, trailing: 23))
@@ -127,6 +130,11 @@ extension View {
                 .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
                 .animation(.default)
             }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willTerminateNotification)) { _ in
+            // Executes timerAction if a user or the system has terminated the application.
+            // Warning: Not called from background.
+            undoController.hide()
         }
     }
 }
