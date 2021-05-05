@@ -10,7 +10,7 @@ import SwiftUI
 /// The controller that allows a user to undo an action within a few seconds. It looks like the system HUDs.
 final public class UndoController: ObservableObject {
     /// Boolean variable indicating whether the `UndoController` is currently displayed or not.
-    @Published fileprivate(set) var isPresented: Bool = false
+    @Published private(set) var isPresented: Bool = false
     /// Time in seconds remaining before the `UndoController` disappears.
     @Published private(set) var seconds: Double = .zero
     /// The content that is displayed on the `UndoController`. The content can be any view, such as `Text`, `Label`, `VStack`, etc.
@@ -21,6 +21,7 @@ final public class UndoController: ObservableObject {
     private(set) var undoAction: (() -> ())?
     fileprivate let indents: EdgeInsets
     private var timer: Timer?
+    fileprivate(set) var id: Double = .zero
     
     /**
      Creates an UndoController instance.
@@ -43,6 +44,7 @@ final public class UndoController: ObservableObject {
         DispatchQueue.main.async {
             // Executes timerAction if the controller has already been presented.
             self.timerAction?()
+            self.id = Double(Date().timeIntervalSince1970)
             self.content = AnyView(content())
             self.seconds = Double(seconds > 99 ? 99 : seconds)
             self.timerAction = timerAction
@@ -109,6 +111,7 @@ extension View {
                         .font(.title)
                         .frame(width: 36) // The fixed width prevents the jerking of the controller during timer operation.
                         .id(undoController.seconds)
+                        .transition(.asymmetric(insertion: .move(edge: .top), removal: .move(edge: .bottom)).combined(with: .opacity))
 
                     undoController.content
 
@@ -119,15 +122,16 @@ extension View {
                            })
                 }
                 .clipped()
-                .padding(EdgeInsets(top: 16, leading: 23, bottom: 16, trailing: 23))
+                .padding(EdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 15))
                 .background(
                     Capsule()
                         .foregroundColor(Color(UIColor.tertiarySystemBackground))
                         .shadow(color: Color(.black).opacity(0.35), radius: 12, x: 0, y: 5)
                 )
                 .padding(undoController.indents)
-                .zIndex(.infinity)
-                .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
+                .id(undoController.id)
+                .zIndex(undoController.id)
+                .transition(.move(edge: .bottom))
                 .animation(.default)
             }
         }
