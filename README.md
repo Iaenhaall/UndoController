@@ -8,7 +8,16 @@ The controller that allows a user to undo an action within seconds. It looks lik
 
 ## Installation
 
-1. Add **UndoController.swift** file to your project.
+#### Via Swift Package Manager
+
+1. In Xcode 11 or greater select `File ▸ Swift Packages ▸ Add Package Dependency`.
+2. Paste the link to this repo https://github.com/Iaenhaall/UndoController.git and click **Next**.
+3. Define the package options for this package or select the default. Click **Next**.
+4. Xcode downloads the code from GitHub and adds the package to the your project target. Click **Finish**.
+
+#### Manually
+
+1. Add **[UndoController.swift](https://github.com/Iaenhaall/UndoController/blob/master/Sources/UndoController/UndoController.swift)** file to your project.
 
    That's all. There are no dependencies.
 
@@ -16,7 +25,7 @@ The controller that allows a user to undo an action within seconds. It looks lik
 
 ## Usage
 
-You can download and run the project to explore the `UndoController` features.
+You can clone the repo and run the **UndoControllerExample** project to explore the `UndoController` features.
 
 These are the main points to pay attention to.
 
@@ -99,8 +108,4 @@ These are the main points to pay attention to.
    ```
 
    To undo actions you can write your own code or use the system [UndoManager](https://developer.apple.com/documentation/foundation/undomanager).
-
-   If the **Show** method is called again when the `UndoController` is already presented and a different *content* is passed, the *content* changes will be animated.
-
-   ![Content animation](Images/Content%20animation.gif)
 

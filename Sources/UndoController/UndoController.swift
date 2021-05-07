@@ -10,18 +10,18 @@ import SwiftUI
 /// The controller that allows a user to undo an action within a few seconds. It looks like the system HUDs.
 final public class UndoController: ObservableObject {
     /// Boolean variable indicating whether the `UndoController` is currently displayed or not.
-    @Published private(set) var isPresented: Bool = false
+    @Published public private(set) var isPresented: Bool = false
     /// Time in seconds remaining before the `UndoController` disappears.
-    @Published private(set) var seconds: Double = .zero
+    @Published public private(set) var seconds: Double = .zero
     /// The content that is displayed on the `UndoController`. The content can be any view, such as `Text`, `Label`, `VStack`, etc.
-    private(set) var content: AnyView?
+    public private(set) var content: AnyView?
     /// The action that will be performed if the `UndoController`'s life time has expired.
-    private(set) var timerAction: (() -> ())?
+    public private(set) var timerAction: (() -> ())?
     /// The action that will be performed if a user undoes the action.
-    private(set) var undoAction: (() -> ())?
+    public private(set) var undoAction: (() -> ())?
     fileprivate let indents: EdgeInsets
     private var timer: Timer?
-    fileprivate(set) var id: Double = .zero
+    fileprivate private(set) var id: Double = .zero
     
     /**
      Creates an UndoController instance.

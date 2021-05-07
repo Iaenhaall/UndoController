@@ -53,8 +53,16 @@ struct ListExample: View {
                                 }
                             })
         {
-            Text("After deletion, the name cannot be restored!")
+            if let name = removedNames.first, name.value == "Jennifer" {
+                VStack(alignment: .leading, spacing: 5) {
+                    Text("Goodbye \(name.value).")
+                    Text("After deletion, the name cannot be restored!")
+                }
                 .frame(minWidth: .zero, maxWidth: .infinity, alignment: .leading) // Makes the UndoController fill the entire width of the View.
+            } else {
+                Text("After deletion, the name cannot be restored!")
+                    .frame(minWidth: .zero, maxWidth: .infinity, alignment: .leading) // Makes the UndoController fill the entire width of the View.
+            }
         }
     }
 }
