@@ -3,116 +3,128 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BD0F1664260397E20057B61E /* ListExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0F1663260397E20057B61E /* ListExample.swift */; };
-		BD42E9BB260278A500E66A85 /* UndoControllerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD42E9BA260278A500E66A85 /* UndoControllerApp.swift */; };
-		BD42E9BD260278A500E66A85 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD42E9BC260278A500E66A85 /* ContentView.swift */; };
-		BD42E9BF260278A800E66A85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD42E9BE260278A800E66A85 /* Assets.xcassets */; };
-		BD42E9C2260278A800E66A85 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD42E9C1260278A800E66A85 /* Preview Assets.xcassets */; };
-		BD42E9CB2602796F00E66A85 /* UndoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD42E9CA2602796F00E66A85 /* UndoController.swift */; };
-		BD77FC3926046F1000586808 /* AppExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD77FC3826046F1000586808 /* AppExample.swift */; };
+		BD7C307D2645751600757E08 /* UndoControllerExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7C307C2645751600757E08 /* UndoControllerExampleApp.swift */; };
+		BD7C307F2645751600757E08 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7C307E2645751600757E08 /* ContentView.swift */; };
+		BD7C30812645751900757E08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD7C30802645751900757E08 /* Assets.xcassets */; };
+		BD7C30842645751900757E08 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD7C30832645751900757E08 /* Preview Assets.xcassets */; };
+		BD7C308E2645755300757E08 /* UndoController in Frameworks */ = {isa = PBXBuildFile; productRef = BD7C308D2645755300757E08 /* UndoController */; };
+		BD7C30902645761A00757E08 /* AppExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7C308F2645761A00757E08 /* AppExample.swift */; };
+		BD7C30922645771500757E08 /* ListExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7C30912645771500757E08 /* ListExample.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BD0F1663260397E20057B61E /* ListExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListExample.swift; sourceTree = "<group>"; };
-		BD42E9B7260278A500E66A85 /* UndoController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UndoController.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD42E9BA260278A500E66A85 /* UndoControllerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoControllerApp.swift; sourceTree = "<group>"; };
-		BD42E9BC260278A500E66A85 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		BD42E9BE260278A800E66A85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BD42E9C1260278A800E66A85 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		BD42E9C3260278A800E66A85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BD42E9CA2602796F00E66A85 /* UndoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoController.swift; sourceTree = "<group>"; };
-		BD77FC3826046F1000586808 /* AppExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExample.swift; sourceTree = "<group>"; };
+		BD7C30792645751600757E08 /* UndoControllerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UndoControllerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD7C307C2645751600757E08 /* UndoControllerExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoControllerExampleApp.swift; sourceTree = "<group>"; };
+		BD7C307E2645751600757E08 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BD7C30802645751900757E08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BD7C30832645751900757E08 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BD7C30852645751900757E08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD7C308B2645753700757E08 /* UndoController */ = {isa = PBXFileReference; lastKnownFileType = folder; name = UndoController; path = ..; sourceTree = "<group>"; };
+		BD7C308F2645761A00757E08 /* AppExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExample.swift; sourceTree = "<group>"; };
+		BD7C30912645771500757E08 /* ListExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListExample.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		BD42E9B4260278A500E66A85 /* Frameworks */ = {
+		BD7C30762645751600757E08 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD7C308E2645755300757E08 /* UndoController in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BD42E9AE260278A500E66A85 = {
+		BD7C30702645751500757E08 = {
 			isa = PBXGroup;
 			children = (
-				BD42E9B9260278A500E66A85 /* UndoController */,
-				BD42E9B8260278A500E66A85 /* Products */,
+				BD7C308B2645753700757E08 /* UndoController */,
+				BD7C307B2645751600757E08 /* UndoControllerExample */,
+				BD7C307A2645751600757E08 /* Products */,
+				BD7C308C2645755300757E08 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		BD42E9B8260278A500E66A85 /* Products */ = {
+		BD7C307A2645751600757E08 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BD42E9B7260278A500E66A85 /* UndoController.app */,
+				BD7C30792645751600757E08 /* UndoControllerExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BD42E9B9260278A500E66A85 /* UndoController */ = {
+		BD7C307B2645751600757E08 /* UndoControllerExample */ = {
 			isa = PBXGroup;
 			children = (
-				BD42E9BA260278A500E66A85 /* UndoControllerApp.swift */,
-				BD42E9CA2602796F00E66A85 /* UndoController.swift */,
-				BD42E9BC260278A500E66A85 /* ContentView.swift */,
-				BD0F1663260397E20057B61E /* ListExample.swift */,
-				BD77FC3826046F1000586808 /* AppExample.swift */,
-				BD42E9BE260278A800E66A85 /* Assets.xcassets */,
-				BD42E9C3260278A800E66A85 /* Info.plist */,
-				BD42E9C0260278A800E66A85 /* Preview Content */,
+				BD7C307C2645751600757E08 /* UndoControllerExampleApp.swift */,
+				BD7C307E2645751600757E08 /* ContentView.swift */,
+				BD7C308F2645761A00757E08 /* AppExample.swift */,
+				BD7C30912645771500757E08 /* ListExample.swift */,
+				BD7C30802645751900757E08 /* Assets.xcassets */,
+				BD7C30852645751900757E08 /* Info.plist */,
+				BD7C30822645751900757E08 /* Preview Content */,
 			);
-			path = UndoController;
+			path = UndoControllerExample;
 			sourceTree = "<group>";
 		};
-		BD42E9C0260278A800E66A85 /* Preview Content */ = {
+		BD7C30822645751900757E08 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				BD42E9C1260278A800E66A85 /* Preview Assets.xcassets */,
+				BD7C30832645751900757E08 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BD7C308C2645755300757E08 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BD42E9B6260278A500E66A85 /* UndoController */ = {
+		BD7C30782645751600757E08 /* UndoControllerExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BD42E9C6260278A800E66A85 /* Build configuration list for PBXNativeTarget "UndoController" */;
+			buildConfigurationList = BD7C30882645751900757E08 /* Build configuration list for PBXNativeTarget "UndoControllerExample" */;
 			buildPhases = (
-				BD42E9B3260278A500E66A85 /* Sources */,
-				BD42E9B4260278A500E66A85 /* Frameworks */,
-				BD42E9B5260278A500E66A85 /* Resources */,
+				BD7C30752645751600757E08 /* Sources */,
+				BD7C30762645751600757E08 /* Frameworks */,
+				BD7C30772645751600757E08 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = UndoController;
-			productName = UndoController;
-			productReference = BD42E9B7260278A500E66A85 /* UndoController.app */;
+			name = UndoControllerExample;
+			packageProductDependencies = (
+				BD7C308D2645755300757E08 /* UndoController */,
+			);
+			productName = UndoControllerExample;
+			productReference = BD7C30792645751600757E08 /* UndoControllerExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		BD42E9AF260278A500E66A85 /* Project object */ = {
+		BD7C30712645751500757E08 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
 				TargetAttributes = {
-					BD42E9B6260278A500E66A85 = {
-						CreatedOnToolsVersion = 12.4;
+					BD7C30782645751600757E08 = {
+						CreatedOnToolsVersion = 12.5;
 					};
 				};
 			};
-			buildConfigurationList = BD42E9B2260278A500E66A85 /* Build configuration list for PBXProject "UndoController" */;
+			buildConfigurationList = BD7C30742645751500757E08 /* Build configuration list for PBXProject "UndoControllerExample" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -120,45 +132,44 @@
 				en,
 				Base,
 			);
-			mainGroup = BD42E9AE260278A500E66A85;
-			productRefGroup = BD42E9B8260278A500E66A85 /* Products */;
+			mainGroup = BD7C30702645751500757E08;
+			productRefGroup = BD7C307A2645751600757E08 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BD42E9B6260278A500E66A85 /* UndoController */,
+				BD7C30782645751600757E08 /* UndoControllerExample */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		BD42E9B5260278A500E66A85 /* Resources */ = {
+		BD7C30772645751600757E08 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD42E9C2260278A800E66A85 /* Preview Assets.xcassets in Resources */,
-				BD42E9BF260278A800E66A85 /* Assets.xcassets in Resources */,
+				BD7C30842645751900757E08 /* Preview Assets.xcassets in Resources */,
+				BD7C30812645751900757E08 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		BD42E9B3260278A500E66A85 /* Sources */ = {
+		BD7C30752645751600757E08 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD42E9BD260278A500E66A85 /* ContentView.swift in Sources */,
-				BD77FC3926046F1000586808 /* AppExample.swift in Sources */,
-				BD42E9BB260278A500E66A85 /* UndoControllerApp.swift in Sources */,
-				BD42E9CB2602796F00E66A85 /* UndoController.swift in Sources */,
-				BD0F1664260397E20057B61E /* ListExample.swift in Sources */,
+				BD7C30922645771500757E08 /* ListExample.swift in Sources */,
+				BD7C307F2645751600757E08 /* ContentView.swift in Sources */,
+				BD7C307D2645751600757E08 /* UndoControllerExampleApp.swift in Sources */,
+				BD7C30902645761A00757E08 /* AppExample.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		BD42E9C4260278A800E66A85 /* Debug */ = {
+		BD7C30862645751900757E08 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -209,7 +220,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -219,7 +230,7 @@
 			};
 			name = Debug;
 		};
-		BD42E9C5260278A800E66A85 /* Release */ = {
+		BD7C30872645751900757E08 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -264,7 +275,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -274,48 +285,42 @@
 			};
 			name = Release;
 		};
-		BD42E9C7260278A800E66A85 /* Debug */ = {
+		BD7C30892645751900757E08 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.3;
-				DEVELOPMENT_ASSET_PATHS = "\"UndoController/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_ASSET_PATHS = "\"UndoControllerExample/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = UndoController/Info.plist;
+				INFOPLIST_FILE = UndoControllerExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.iaenhaall.UndoController;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iaenhaall.UndoControllerExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
-		BD42E9C8260278A800E66A85 /* Release */ = {
+		BD7C308A2645751900757E08 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.3;
-				DEVELOPMENT_ASSET_PATHS = "\"UndoController/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_ASSET_PATHS = "\"UndoControllerExample/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = UndoController/Info.plist;
+				INFOPLIST_FILE = UndoControllerExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.iaenhaall.UndoController;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iaenhaall.UndoControllerExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -325,25 +330,32 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BD42E9B2260278A500E66A85 /* Build configuration list for PBXProject "UndoController" */ = {
+		BD7C30742645751500757E08 /* Build configuration list for PBXProject "UndoControllerExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BD42E9C4260278A800E66A85 /* Debug */,
-				BD42E9C5260278A800E66A85 /* Release */,
+				BD7C30862645751900757E08 /* Debug */,
+				BD7C30872645751900757E08 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BD42E9C6260278A800E66A85 /* Build configuration list for PBXNativeTarget "UndoController" */ = {
+		BD7C30882645751900757E08 /* Build configuration list for PBXNativeTarget "UndoControllerExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BD42E9C7260278A800E66A85 /* Debug */,
-				BD42E9C8260278A800E66A85 /* Release */,
+				BD7C30892645751900757E08 /* Debug */,
+				BD7C308A2645751900757E08 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BD7C308D2645755300757E08 /* UndoController */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UndoController;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = BD42E9AF260278A500E66A85 /* Project object */;
+	rootObject = BD7C30712645751500757E08 /* Project object */;
 }

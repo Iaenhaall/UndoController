@@ -101,7 +101,7 @@ extension View {
      1. It is recommended to embed in a view that takes up the entire screen area.
      2. To access `UndoController` from nested views, `EnvironmentObject` wrapper can be used.
      */
-    func add(_ undoController: UndoController) -> some View {
+    public func add(_ undoController: UndoController) -> some View {
         ZStack(alignment: .bottom) {
             self
 

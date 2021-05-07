@@ -1,11 +1,12 @@
 //
-//  UndoControllerApp.swift
-//  UndoController
+//  UndoControllerExampleApp.swift
+//  UndoControllerExample
 //
-//  Created by Никита Белокриницкий on 17.03.2021.
+//  Created by Никита Белокриницкий on 07.05.2021.
 //
 
 import SwiftUI
+import UndoController
 
 @main
 struct UndoControllerApp: App {

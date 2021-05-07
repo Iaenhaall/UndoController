@@ -1,11 +1,12 @@
 //
 //  ListExample.swift
-//  UndoController
+//  UndoControllerExample
 //
-//  Created by Никита Белокриницкий on 18.03.2021.
+//  Created by Никита Белокриницкий on 07.05.2021.
 //
 
 import SwiftUI
+import UndoController
 
 struct ListExample: View {
     @State private var names: [String] = [
